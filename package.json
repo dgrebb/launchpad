@@ -6,6 +6,7 @@
 	"repository": "https://github.com/dgrebb/launchpad.git",
 	"scripts": {
 		"dev": "vite dev",
+		"td": "tauri dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

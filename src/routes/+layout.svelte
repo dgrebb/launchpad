@@ -1,4 +1,5 @@
-<script lang="ts">
+<script>
+	import '../app.css';
 	import '$lib/styles/global.pcss';
 	import type { Snippet } from 'svelte';
 

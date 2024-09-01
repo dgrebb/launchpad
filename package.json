@@ -19,11 +19,15 @@
 	"dependencies": {
 		"@tauri-apps/api": ">=2.0.0-rc.0",
 		"@tauri-apps/plugin-shell": ">=2.0.0-rc.1",
+		"bits-ui": "^0.21.13",
 		"clsx": "^2.1.1",
+		"mode-watcher": "^0.4.1",
+		"svelte-radix": "^1.1.1",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1"
 	},
 	"devDependencies": {
+		"@iconify/svelte": "^4.0.2",
 		"@sveltejs/adapter-auto": "^3.2.4",
 		"@sveltejs/adapter-static": "^3.0.4",
 		"@sveltejs/kit": "^2.5.25",

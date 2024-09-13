@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '$lib/styles/app.css';
+	import '$lib/app.pcss';
 	import type { Snippet } from 'svelte';
 	import { ModeWatcher, toggleMode, mode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button/index.js';

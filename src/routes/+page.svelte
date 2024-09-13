@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getUserProjects } from '$lib/utils/API.jira';
+	// import { getUserProjects } from '@components/Jira/utils/API.jira';
 	import { projectsState } from '@state';
 	let projects = $state(projectsState.getProjects());
 

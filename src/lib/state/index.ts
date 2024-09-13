@@ -1,1 +1,1 @@
-export { projectsState } from './projects.svelte';
+export { projectsState } from '@components/Jira/Projects/projects.svelte';

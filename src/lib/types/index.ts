@@ -1,1 +1,1 @@
-export * from './projects.types';
+export * from '@components/Jira/Projects/projects.types';

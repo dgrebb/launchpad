@@ -1,3 +1,45 @@
 {
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+  "css.customData": [
+    ".vscode/tailwind.json"
+  ],
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+  "postcss.lint.unknownAtRules": "ignore",
+  "git.enableCommitSigning": true,
+  "files.exclude": {
+    ".eslintignore": false,
+    ".eslintrc.cjs": false,
+    ".gitignore": false,
+    ".npmrc": false,
+    ".prettierignore": false,
+    ".prettierrc": false,
+    "CHANGELOG.md": false,
+    "package.json": false,
+    "playwright.config.ts": false,
+    "pnpm-lock.yaml": false,
+    "postcss.config.cjs": false,
+    "svelte.config.js": false,
+    "tailwind.config.cjs": false,
+    "tsconfig.json": false,
+    "vite.config.ts": false,
+    "vite.config.ts.timestamp*": false,
+    ".svelte-kit": false,
+    ".vscode": false,
+    "node_moduels": false,
+    "_host-scripts": false
+  },
+  "search.exclude": {
+    "node_modules": true,
+    ".git": true,
+    ".svelte-kit/**": true,
+    "build/**": true,
+    "*/**/package-lock.json": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "svelte"
+  ],
 }

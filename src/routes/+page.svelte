@@ -1,28 +1,9 @@
-<script lang="ts">
-	// import { getUserProjects } from '@components/Jira/utils/API.jira';
-	import { projectsState } from '@state';
-	let projects = $state(projectsState.getProjects());
-
-	$effect(() => {
-		return async () => {
-			// const projects = await getUserProjects();
-			// console.log('🚀 ~ return ~ projects:', projects);
-			// projectsState.setProjects([
-			// 	{
-			// 		name: 'Unbelievable Project',
-			// 		key: 'UBP'
-			// 	}
-			// ]);
-		};
-	});
+<script>
+	// your script goes here
 </script>
 
-<section class="dashboard">
-	<h1>Dashboard</h1>
-	{#if projects.length > 0}
-		{#each projects as project}
-			<h2>{project.name}</h2>
-			<h3><code>{project.key}</code></h3>
-		{/each}
-	{/if}
-</section>
+<h1>main app</h1>
+
+<style>
+	/* your styles go here */
+</style>

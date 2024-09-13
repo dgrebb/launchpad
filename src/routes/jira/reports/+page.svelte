@@ -2,5 +2,5 @@
 </script>
 
 <section class="dashboard">
-	<h1>Releases</h1>
+	<h1>Reports</h1>
 </section>

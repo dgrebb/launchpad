@@ -3,6 +3,18 @@
 version = 3
 
 [[package]]
+name = "LaunchPad"
+version = "0.0.1"
+dependencies = [
+ "dotenv",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+]
+
+[[package]]
 name = "addr2line"
 version = "0.22.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1579,18 +1591,6 @@ dependencies = [
  "indexmap 1.9.3",
  "matches",
  "selectors",
-]
-
-[[package]]
-name = "launchpad"
-version = "0.0.1"
-dependencies = [
- "dotenv",
- "reqwest",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
 ]
 
 [[package]]

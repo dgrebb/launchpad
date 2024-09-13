@@ -21,13 +21,22 @@ export default [
 	},
 	{
 		files: ['**/*.svelte'],
+		plugins: {
+			tseslint: ts
+		},
 		languageOptions: {
 			parserOptions: {
-				parser: ts.parser
+				parser: ts.parser,
+				sourceType: 'module',
+				ecmaVersion: 2020,
+				extraFileExtensions: ['.svelte']
 			}
+		},
+		rules: {
+			'svelte/no-at-html-tags': 'off'
 		}
 	},
 	{
-		ignores: ['build/', '.svelte-kit/', 'dist/']
+		ignores: ['build/', '.svelte-kit/', 'src-tauri', '.vscode']
 	}
 ];

@@ -107,7 +107,7 @@
 					class="overflow-hidden rounded-full"
 				>
 					<img
-						src="/images/placeholder-user.jpg"
+						src="/img/user-avatar-placeholder.png"
 						width={36}
 						height={36}
 						alt="Avatar"

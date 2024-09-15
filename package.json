@@ -19,6 +19,7 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@internationalized/date": "^3.5.5",
 		"bits-ui": "^0.21.13",
 		"clsx": "^2.1.1",
 		"mode-watcher": "^0.4.1",

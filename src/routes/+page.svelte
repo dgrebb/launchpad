@@ -4,9 +4,7 @@
 	import Dashboard from '@components/Dashboard/Dashboard.svelte';
 </script>
 
-<section class="dashboard">
-	<Dashboard />
-</section>
+<Dashboard />
 
 <style>
 	/* your styles go here */

@@ -6,3 +6,7 @@ export interface ProjectInfo {
 }
 
 export type Projects = ProjectInfo[];
+
+export interface ProjectWithSelection extends ProjectInfo {
+	selected: boolean | 'indeterminate';
+}

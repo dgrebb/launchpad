@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Select as SelectPrimitive } from 'bits-ui';
 	import CaretSort from 'svelte-radix/CaretSort.svelte';
-	import { cn } from '$lib/utils/index.utils';
+	import { cn } from '$lib/utils';
 
 	type $$Props = SelectPrimitive.TriggerProps;
 	type $$Events = SelectPrimitive.TriggerEvents;

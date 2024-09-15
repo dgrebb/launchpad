@@ -18,11 +18,11 @@
 	let { children }: Props = $props();
 </script>
 
-<div class="flex w-full flex-col bg-muted/40">
+<div class="relative flex min-h-full w-full flex-col bg-muted/40">
 	<Header />
 
-	<div class="flex min-w-full flex-col bg-muted/40">
-		<div class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+	<div class="flex min-w-full flex-1 flex-col bg-muted/40">
+		<div class="flex flex-1 flex-col sm:gap-4 sm:py-4 sm:pl-14">
 			<main class="mb-4 grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
 				{#if children}
 					{@render children()}
@@ -31,5 +31,5 @@
 		</div>
 	</div>
 
-	<Footer />
+	<!-- <Footer /> -->
 </div>

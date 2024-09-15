@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLLiAttributes } from 'svelte/elements';
-	import { cn } from '$lib/utils/index.utils';
+	import { cn } from '$lib/utils';
 
 	type $$Props = HTMLLiAttributes & {
 		el?: HTMLLIElement;

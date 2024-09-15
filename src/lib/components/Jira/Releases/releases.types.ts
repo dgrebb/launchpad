@@ -1,9 +1,11 @@
 export interface JiraVersionPostData {
-	archived: boolean;
-	description: string;
+	archived?: boolean;
+	description?: string | null | undefined | number | string[];
 	name: string;
 	projectId: number;
-	released: boolean;
+	releaseDate?: string;
+	startDate?: string;
+	released?: boolean;
 }
 
 export interface JiraVersionResponseData {

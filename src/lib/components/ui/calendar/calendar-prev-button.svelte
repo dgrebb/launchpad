@@ -1,21 +1,21 @@
 <script lang="ts">
-	import { Calendar as CalendarPrimitive } from "bits-ui";
-	import ChevronLeft from "svelte-radix/ChevronLeft.svelte";
-	import { buttonVariants } from "$lib/components/ui/button/index.js";
-	import { cn } from "$lib/utils/index.utils.js";
+	import { Calendar as CalendarPrimitive } from 'bits-ui';
+	import ChevronLeft from 'svelte-radix/ChevronLeft.svelte';
+	import { buttonVariants } from '$lib/components/ui/button/index.js';
+	import { cn } from '$lib/utils/index.js';
 
 	type $$Props = CalendarPrimitive.PrevButtonProps;
 	type $$Events = CalendarPrimitive.PrevButtonEvents;
 
-	let className: $$Props["class"] = undefined;
+	let className: $$Props['class'] = undefined;
 	export { className as class };
 </script>
 
 <CalendarPrimitive.PrevButton
 	on:click
 	class={cn(
-		buttonVariants({ variant: "outline" }),
-		"h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100",
+		buttonVariants({ variant: 'outline' }),
+		'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',
 		className
 	)}
 	{...$$restProps}

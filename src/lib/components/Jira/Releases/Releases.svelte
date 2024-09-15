@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { Badge } from '$lib/components/ui/badge/index.js';
-	import { Button } from '$lib/components/ui/button/index.js';
-	import * as Card from '$lib/components/ui/card/index.js';
-	import { Input } from '$lib/components/ui/input/index.js';
-	import * as Sheet from '$lib/components/ui/sheet/index.js';
+	import { Badge } from '$lib/components/ui/badge';
+	import { Button } from '$lib/components/ui/button';
+	import * as Card from '$lib/components/ui/card';
+	import { Input } from '$lib/components/ui/input';
+	import * as Sheet from '$lib/components/ui/sheet';
 	import { projectsState } from '@state';
-	import Bell from 'lucide-svelte/icons/bell';
 	import ChartSpline from 'lucide-svelte/icons/chart-spline';
 	import Ellipsis from 'lucide-svelte/icons/ellipsis';
 	import House from 'lucide-svelte/icons/house';
@@ -15,9 +14,18 @@
 	import Search from 'lucide-svelte/icons/search';
 	import ShoppingCart from 'lucide-svelte/icons/shopping-cart';
 	import Users from 'lucide-svelte/icons/users';
-	import NewReleaseForm from './NewReleaseForm.svelte';
+	import NewReleaseForm from './ReleaseForm.svelte';
+	import ProjectsAside from '../Projects/ProjectsAside.svelte';
+	import type { ProjectWithSelection } from '@types';
 
 	let projects = $state(projectsState.getProjects());
+
+	let selectedProjects: ProjectWithSelection[] = $derived(
+		projects.map((project) => {
+			return { ...project, selected: false };
+		})
+	);
+
 	let showReleaseForm = $state(false);
 
 	const toggleReleaseForm = () => {
@@ -30,33 +38,7 @@
 </script>
 
 <div class="grid w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-	<div class="hidden border-r bg-muted/40 md:block">
-		<div class="flex h-full max-h-screen flex-col gap-2">
-			<div class="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-				<a href="/" class="flex items-center gap-2 font-semibold">
-					<Package2 class="h-6 w-6" />
-					<span class="">Jira Projects</span>
-				</a>
-				<Button variant="outline" size="icon" class="ml-auto h-8 w-8">
-					<Bell class="h-4 w-4" />
-					<span class="sr-only">Toggle notifications</span>
-				</Button>
-			</div>
-			<div class="flex-1">
-				<nav class="grid items-start px-2 text-sm font-medium lg:px-4">
-					{#each projects as project}
-						<a
-							href="##"
-							class="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-						>
-							<House class="h-4 w-4" />
-							{project.name}
-						</a>
-					{/each}
-				</nav>
-			</div>
-		</div>
-	</div>
+	<ProjectsAside projects={selectedProjects} />
 	<div class="flex flex-col overflow-y-scroll">
 		<header class="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
 			<Sheet.Root>
@@ -154,7 +136,7 @@
 					</Card.Header>
 					<Card.Content class="relative flex flex-1 p-2 pt-0 md:p-4 md:pt-0">
 						<p class="">Some details about stuff and things.</p>
-						<Button size="sm" class="absolute bottom-0 right-0 m-2 md:p-4"
+						<Button size="sm" class="absolute bottom-0 right-0 m-4 md:p-4"
 							><Ellipsis class="h-5 w-5 flex-shrink" /></Button
 						>
 					</Card.Content>
@@ -166,7 +148,7 @@
 					</Card.Header>
 					<Card.Content class="relative flex flex-1 p-2 pt-0 md:p-4 md:pt-0">
 						<p class="">Some details about stuff and things.</p>
-						<Button size="sm" class="absolute bottom-0 right-0 m-2 md:p-4"
+						<Button size="sm" class="absolute bottom-0 right-0 m-4 md:p-4"
 							><Ellipsis class="h-5 w-5 flex-shrink" /></Button
 						>
 					</Card.Content>
@@ -183,7 +165,7 @@
 						<Button class="mt-4" onclick={toggleReleaseForm}>Add Release</Button>
 					{:else}
 						<div class="new-version-form">
-							<NewReleaseForm {toggleReleaseForm} />
+							<NewReleaseForm {toggleReleaseForm} {selectedProjects} />
 						</div>
 					{/if}
 				</div>

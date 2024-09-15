@@ -1,7 +1,5 @@
 <script lang="ts">
-	import JiraReleases from '@components/Jira/Releases/JiraReleases.svelte';
+	import Releases from '@components/Jira/Releases/Releases.svelte';
 </script>
 
-<section class="dashboard">
-	<JiraReleases />
-</section>
+<Releases />

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLOlAttributes } from 'svelte/elements';
-	import { cn } from '$lib/utils/index.utils';
+	import { cn } from '$lib/utils';
 
 	type $$Props = HTMLOlAttributes & {
 		el?: HTMLOListElement;

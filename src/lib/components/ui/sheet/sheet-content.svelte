@@ -3,7 +3,7 @@
 	import Cross2 from 'svelte-radix/Cross2.svelte';
 	import { fly } from 'svelte/transition';
 	import { SheetOverlay, SheetPortal, type Side, sheetTransitions, sheetVariants } from '.';
-	import { cn } from '$lib/utils/index.utils';
+	import { cn } from '$lib/utils';
 
 	type $$Props = SheetPrimitive.ContentProps & {
 		side?: Side;

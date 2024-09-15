@@ -11,6 +11,4 @@
 	});
 </script>
 
-<section class="dashboard">
-	<JiraProjects {projects} />
-</section>
+<JiraProjects {projects} />

@@ -3,6 +3,12 @@
 	import type { Snippet } from 'svelte';
 	import Footer from '@components/ui/Footer/Footer.svelte';
 	import Header from '@components/ui/Header/Header.svelte';
+	import mockProjects from '$lib/../test/mocks/jira/user-projects.json';
+	import { projectsState } from '@state';
+
+	$effect(() => {
+		projectsState.setProjects(mockProjects);
+	});
 
 	interface Props {
 		children: Snippet;

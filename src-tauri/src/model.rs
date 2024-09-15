@@ -49,6 +49,10 @@ pub struct JiraVersionCreateRequest {
     pub name: String,
     #[serde(rename = "projectId")]
     pub project_id: u32,
+    #[serde(rename = "releaseDate")]
+    pub release_date: String,
+    #[serde(rename = "startDate")]
+    pub start_date: String,
     pub released: bool,
 }
 
@@ -63,5 +67,9 @@ pub struct JiraVersionCreateResponse {
     pub name: String,
     #[serde(rename = "projectId")]
     pub project_id: u32,
+    #[serde(rename = "releaseDate")]
+    pub release_date: String,
+    #[serde(rename = "startDate")]
+    pub start_date: String,
     pub released: bool,
 }

@@ -15,7 +15,7 @@ pub struct AvatarUrls {
     pub avatar_url: String,
 }
 
-// Define the flattened structure we want to convert to.
+// Flattened structure
 #[derive(Serialize, Deserialize, Debug)]
 pub struct JiraProjectInfo {
     pub id: String,
@@ -25,7 +25,6 @@ pub struct JiraProjectInfo {
 }
 
 impl JiraProject {
-    // Conversion function to flatten the JiraProject into JiraProjectInfo
     pub fn to_info(&self) -> JiraProjectInfo {
         JiraProjectInfo {
             id: self.id.clone(),
@@ -36,8 +35,33 @@ impl JiraProject {
     }
 }
 
-// Assuming the response is a list of JiraProject
+// Wrapper for Jira projects response
 #[derive(Serialize, Deserialize)]
 pub struct JiraProjectsResponse {
     pub projects: Vec<JiraProject>,
+}
+
+// Request body for creating a new version
+#[derive(Serialize, Deserialize, Debug)]
+pub struct JiraVersionCreateRequest {
+    pub archived: bool,
+    pub description: String,
+    pub name: String,
+    #[serde(rename = "projectId")]
+    pub project_id: u32,
+    pub released: bool,
+}
+
+// Response data for created version
+#[derive(Serialize, Deserialize, Debug)]
+pub struct JiraVersionCreateResponse {
+    #[serde(rename = "self")]
+    pub self_url: String,
+    pub id: String,
+    pub archived: bool,
+    pub description: String,
+    pub name: String,
+    #[serde(rename = "projectId")]
+    pub project_id: u32,
+    pub released: bool,
 }

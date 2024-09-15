@@ -1,8 +1,12 @@
 <script>
 	// your script goes here
+
+	import Dashboard from '@components/Dashboard/Dashboard.svelte';
 </script>
 
-<h1>main app</h1>
+<section class="dashboard">
+	<Dashboard />
+</section>
 
 <style>
 	/* your styles go here */

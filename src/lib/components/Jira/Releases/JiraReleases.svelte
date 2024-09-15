@@ -4,8 +4,10 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import { Input } from '$lib/components/ui/input/index.js';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
+	import { projectsState } from '@state';
 	import Bell from 'lucide-svelte/icons/bell';
 	import ChartSpline from 'lucide-svelte/icons/chart-spline';
+	import Ellipsis from 'lucide-svelte/icons/ellipsis';
 	import House from 'lucide-svelte/icons/house';
 	import Menu from 'lucide-svelte/icons/menu';
 	import Package from 'lucide-svelte/icons/package';
@@ -13,18 +15,21 @@
 	import Search from 'lucide-svelte/icons/search';
 	import ShoppingCart from 'lucide-svelte/icons/shopping-cart';
 	import Users from 'lucide-svelte/icons/users';
-
-	import { projectsState } from '@state';
-	import Ellipsis from 'lucide-svelte/icons/ellipsis';
+	import NewReleaseForm from './NewReleaseForm.svelte';
 
 	let projects = $state(projectsState.getProjects());
+	let showReleaseForm = $state(false);
+
+	const toggleReleaseForm = () => {
+		showReleaseForm = !showReleaseForm;
+	};
 
 	$effect(() => {
 		projects = projectsState.getProjects();
 	});
 </script>
 
-<div class="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+<div class="grid w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
 	<div class="hidden border-r bg-muted/40 md:block">
 		<div class="flex h-full max-h-screen flex-col gap-2">
 			<div class="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
@@ -52,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="flex flex-col">
+	<div class="flex flex-col overflow-y-scroll">
 		<header class="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
 			<Sheet.Root>
 				<Sheet.Trigger asChild let:builder>
@@ -172,9 +177,15 @@
 				class="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm"
 			>
 				<div class="flex flex-col items-center gap-1 text-center">
-					<h3 class="text-2xl font-bold tracking-tight">No working releases</h3>
-					<p class="text-sm text-muted-foreground">Select projects to manage releases, or...</p>
-					<Button class="mt-4">Add Release</Button>
+					{#if !showReleaseForm}
+						<h3 class="text-2xl font-bold tracking-tight">No working releases</h3>
+						<p class="text-sm text-muted-foreground">Select projects to manage releases, or...</p>
+						<Button class="mt-4" onclick={toggleReleaseForm}>Add Release</Button>
+					{:else}
+						<div class="new-version-form">
+							<NewReleaseForm {toggleReleaseForm} />
+						</div>
+					{/if}
 				</div>
 			</div>
 		</main>

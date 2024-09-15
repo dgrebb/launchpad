@@ -7,6 +7,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"td": "tauri dev",
+		"ti": "tauri icon src-tauri/icons/icon.png",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

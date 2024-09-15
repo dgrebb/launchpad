@@ -8,7 +8,6 @@ use crate::model::{JiraProject, JiraProjectInfo, JiraVersionCreateRequest, JiraV
 
 mod model;
 
-// GET Jira projects command (existing one)
 #[tauri::command]
 async fn get_jira_projects() -> Result<Vec<JiraProjectInfo>, String> {
     dotenv().ok();
@@ -36,6 +35,7 @@ async fn get_jira_projects() -> Result<Vec<JiraProjectInfo>, String> {
                 return Err(format!("Error: Received status code {} with body: {}", status, text));
             }
 
+            // Deserialize the response into the JiraProjectInfo struct
             match serde_json::from_str::<Vec<JiraProject>>(&text) {
                 Ok(parsed_response) => {
                     let project_infos: Vec<JiraProjectInfo> = parsed_response
@@ -58,7 +58,6 @@ async fn get_jira_projects() -> Result<Vec<JiraProjectInfo>, String> {
     }
 }
 
-// POST handler for creating a Jira version
 #[tauri::command]
 async fn create_jira_version(version_data: JiraVersionCreateRequest) -> Result<JiraVersionCreateResponse, String> {
     dotenv().ok();
@@ -73,7 +72,7 @@ async fn create_jira_version(version_data: JiraVersionCreateRequest) -> Result<J
     let response = client
         .post(&version_endpoint)
         .header(header::AUTHORIZATION, auth_header)
-        .json(&version_data) // Send the version data in JSON format
+        .json(&version_data)
         .send()
         .await;
 
@@ -105,7 +104,7 @@ async fn create_jira_version(version_data: JiraVersionCreateRequest) -> Result<J
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![get_jira_projects, create_jira_version]) // Add the new POST handler here
+        .invoke_handler(tauri::generate_handler![get_jira_projects, create_jira_version]) 
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
